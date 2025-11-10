@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: myinit-pod
+spec:
+  containers: 
+    - name: mymain-co
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+  initContainers:
+    - name: myinit-container
+      image: alpine:latest
+      command: ["sh", "-c", "echo this my first data > /usr/share/nginx/html/index.yaml"]         
